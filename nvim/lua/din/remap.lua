@@ -17,3 +17,5 @@ vim.keymap.set("n", "<C-n>", ":NERDTree<CR>")
 vim.keymap.set("n", "<F1>", ":NERDTreeToggle<CR>")
 vim.keymap.set("n", "<C-f>", ":NERDTreeFind<CR>")
 
+vim.api.nvim_set_keymap('n', '<F3>', ':NERDTreeToggle %<CR>', { noremap = true })
+

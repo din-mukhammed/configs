@@ -38,7 +38,9 @@ return require('packer').startup(function(use)
 	  }
   }
 
-  use ('fatih/vim-go')
+  -- use ('fatih/vim-go')
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua' -- recommended if need floating window support
   use ('preservim/nerdtree')
 
   use {
@@ -51,10 +53,9 @@ return require('packer').startup(function(use)
   use({
 	  'ellisonleao/gruvbox.nvim',
 	  as = 'gruvbox',
-	  config = function()
-		  vim.cmd('colorscheme gruvbox')
-	  end
   })
+
+  use 'navarasu/onedark.nvim'
 
   use ({ 'alexghergh/nvim-tmux-navigation', config = function()
 
@@ -70,8 +71,44 @@ return require('packer').startup(function(use)
       vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
       vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
       vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
-      end
+  end
   })
 
+  use 'folke/trouble.nvim'
+  use 'nvim-tree/nvim-web-devicons'
+
+  use 'ntpeters/vim-better-whitespace'
+
+  use {
+      'nvim-lualine/lualine.nvim',
+  }
+
+  use 'lewis6991/gitsigns.nvim'
+
+  use { "catppuccin/nvim", as = "catppuccin" }
+
+  use { "xiyaowong/transparent.nvim" }
+
+  use { 'rose-pine/neovim' }
+
+  use { 'Mofiqul/vscode.nvim' }
+
+  -- use({ "typicode/bg.nvim" })
+  --
+  use { 'gmr458/dark_modern.nvim' }
+
+  use { 'szw/vim-maximizer' }
+
+  use { 'folke/which-key.nvim', opts = {} }
+
+  use({
+      "kylechui/nvim-surround",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      config = function()
+          require("nvim-surround").setup({
+              -- Configuration here, or leave empty to use defaults
+          })
+      end
+  })
 
 end)
