@@ -1,12 +1,11 @@
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>pg', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Live Grep"})
 vim.keymap.set('n', '<leader>pc', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
-vim.keymap.set('n', 'gd', 'builtin.lsp_definitions({jump_type="vsplit"})<CR>', {})
-vim.keymap.set('n', 'gi', builtin.lsp_implementations, {})
 vim.keymap.set('n', '<leader>xf', builtin.diagnostics, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<leader>po', builtin.oldfiles, { desc = "Find Old Files"})
 
 
 vim.keymap.set('n', '<leader>ps', function()
@@ -44,4 +43,9 @@ telescope.setup({
     },
   },
 })
+
+
+require("telescope").load_extension("live_grep_args")
+-- require('telescope').load_extension('fzf')
+-- require('telescope').load_extension('fzy_native')
 
